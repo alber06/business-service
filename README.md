@@ -1,6 +1,6 @@
 business-service
 ==============
-business-service server
+business-service app using Node with KrakenJS, AngularJS, MongoDB and Docker Compose
 
 
 # Frontend
@@ -42,6 +42,7 @@ All tests, helper modules and configuration are located under `test` folder:
 
 ### HTTP Ports
 - `9000` for `grunt servedev`
+- `9009` for `grunt serve:dist`
 - `9002` for `grunt coverage`
 - `9876` for Karma server
 
@@ -62,9 +63,13 @@ All tests, helper modules and configuration are located under `test` folder:
 
 Check `package.json` and `Makefile` to see available scripts and build targets. NPM run scripts are mostly aliases to their Make counterparts.
 
+### Docker
+
+You can start the server with the Mongo database just running `make docker-compose-up` inside the `backend\` folder.
+
 ### Tests
 
-To run the tests, you need to have [docker-engine](https://docs.docker.com/engine/installation/) installed in case of Linux, or run the test inside a [docker-machine](https://docs.docker.com/machine/install-machine/) in case of OSX or Windows:
+To run the tests, you need to have [docker-machine](https://docs.docker.com/machine/install-machine/)
 
 
 
@@ -73,3 +78,7 @@ All tests, helper modules and configuration are located under `test` folder:
 - `test/helpers` folder contains the server and validation helpers.
 - `test/routes` folder contains cors and locale headers helpers.
 - `test` folder contains the actual Mocha specs.
+
+# Docker
+
+To run all the app, just run `make docker-compose-up` in the root folder `\`. You will need to have installed the [docker-machine](https://docs.docker.com/machine/install-machine/) in order to run the app inside of it. You can access the app in your browser in `192.168.99.100:9009`.
