@@ -1,0 +1,71 @@
+<div class="page page-table">
+  <div class="table-dynamic" ng-cloak ng-if="vm.cities.length">
+    <div class="table-filters">
+      <div class="row">
+          <div class="col-sm-4 col-xs-6">
+            <form>
+              <input type="text"
+                     placeholder="Find city..."
+                     class="form-control"
+                     ng-model="vm.searchKeywords"
+                     ng-keyup="vm.api.search()">
+            </form>
+          </div>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped table-responsive">
+      <thead>
+        <tr class="table-header">
+            <th><div class="th col-md-12 kli-th">
+              City
+              <span class="fa fa-angle-up"
+                    ng-click="vm.api.order('name')"
+                    ng-class="{active: vm.row == 'name'}"></span>
+              <span class="fa fa-angle-down"
+                    ng-click="vm.api.order('-name')"
+                    ng-class="{active: vm.row == '-name'}"></span>
+            </div></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="city in vm.currentPageData"
+              ng-mouseover="vm.api.showBusinesses(city.city, $index)">
+              <td class="col-md-12">
+                {{ city.city }}
+                <ul ng-if="vm.showingCity === $index">
+                  <li ng-repeat="business in vm.businesses[$index]"
+                      ng-click="vm.api.showBusinessDetails(business, $index)">
+                      <a href="javascript:;">{{ business.name }}</a>
+                  </li>
+                </ul>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+    <footer class="table-footer">
+        <div class="row">
+            <div class="col-md-6 page-num-info">
+              <span class="mrg-right-20">Show</span>
+              <span class="mrg-right-20">
+                    <select ng-model="vm.numPerPage"
+                            ng-options="num for num in vm.numPerPageOpt"
+                            ng-change="vm.api.onNumPerPageChange()">
+                    </select>
+              </span>
+                    cities per page
+            </div>
+            <div class="col-md-6 text-right pagination-container">
+                <pagination class="pagination-sm"
+                            ng-model="vm.currentPage"
+                            total-items="vm.filteredData.length"
+                            max-size="4"
+                            ng-change="vm.api.select(vm.currentPage)"
+                            items-per-page="vm.numPerPage"
+                            rotate="false"
+                            previous-text="&lsaquo;" next-text="&rsaquo;"
+                            boundary-links="true"></pagination>
+            </div>
+        </div>
+    </footer>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+{
+  "name": "business-service",
+  "version": "1.0.0",
+  "description": "business-service server",
+  "main": "server.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node server.js",
+    "test": "make test",
+    "ci-test": "make ci-test",
+    "coverage": "make coverage"
+  },
+  "dependencies": {
+    "bluebird": "2.10.2",
+    "coffee-script": "1.10.0",
+    "continuation-local-storage": "^3.1.6",
+    "cors": "2.7.1",
+    "csv-parse": "^1.0.4",
+    "express": "4.13.3",
+    "express-session": "1.11.3",
+    "fs-promise": "^0.5.0",
+    "kraken-js": "2.0.0",
+    "moment": "2.10.6",
+    "mongoose": "4.4.5",
+    "mongoose-long": "0.0.2",
+    "mongoose-types": "1.0.3",
+    "morgan": "^1.6.1",
+    "numeral": "^1.5.3",
+    "pine": "^1.1.0",
+    "promised-csv": "^1.0.1",
+    "request-promise": "1.0.1",
+    "socket.io": "^1.4.5",
+    "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "chai": "3.3.0",
+    "chai-as-promised": "5.1.0",
+    "coveralls": "2.11.4",
+    "istanbul": "0.3.22",
+    "jshint": "2.8.0",
+    "mocha": "2.3.3",
+    "proxyquire": "1.7.3",
+    "sinon": "1.17.1",
+    "sinon-chai": "2.8.0",
+    "supertest": "1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alber06/business-service.git"
+  },
+  "author": {
+    "name": "Alberto Fernández"
+  },
+  "contributors": []
+}

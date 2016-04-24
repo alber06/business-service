@@ -1,0 +1,38 @@
+{
+  "mongo": {
+    "uri": "mongodb://mongo:27017/business-service",
+    "options": {
+      "user": "",
+      "pass": ""
+    }
+  },
+
+  "logger": {
+    "main": {
+      "console": {
+        "level": "debug"
+      },
+      "file": {
+        "level"   : "info",
+        "filename": "business-service.log"
+      }
+    },
+    "access": {
+      "console": {
+        "level": "info"
+      },
+      "file": {
+        "level"   : "info",
+        "filename": "business-service-access.log"
+      }
+    }
+  },
+
+  "middleware": {
+    "logger": {
+      "module": {
+        "arguments": ["dev"]
+      }
+    }
+  }
+}

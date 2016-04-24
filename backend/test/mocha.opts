@@ -1,0 +1,8 @@
+--recursive
+--compilers coffee:coffee-script/register
+--ui bdd
+--reporter spec
+--check-leaks
+--globals projection
+--timeout 6000
+--growl

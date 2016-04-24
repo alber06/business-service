@@ -1,0 +1,47 @@
+{
+  "mongo": {
+    "uri": "mongodb://localhost/business-service-e2e",
+    "options": {
+      "user"  : "",
+      "pass"  : "",
+      "quiet" : true
+    }
+  },
+
+  "logger": {
+    "main": {
+      "console": {
+        "level": "silent"
+      },
+      "file": {
+        "level": "silent"
+      }
+    },
+    "access": {
+      "console": {
+        "level": "silent"
+      },
+      "file": {
+        "level": "silent"
+      }
+    }
+  },
+
+  "middleware": {
+    "logger": {
+      "module": {
+        "arguments": [ "dev" ]
+      }
+    },
+
+    "test-router": {
+      "enabled": true,
+      "priority": 115,
+      "module": {
+        "name": "express-enrouten",
+        "arguments": [{ "directory": "path:./test/routes" }]
+      }
+    }
+  }
+
+}

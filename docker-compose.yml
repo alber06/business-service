@@ -1,0 +1,28 @@
+backend:
+  build: ./backend
+  links:
+    - database:mongo
+  ports:
+    - "8080:8080"
+  volumes:
+    - ./backend:/usr/src/app/back/
+    - ./backend/node_modules:/usr/src/app/back/node_modules
+  environment:
+    NODE_ENV: development
+database:
+ image: mongo:3.0.4
+ command: mongod --quiet
+ ports:
+   - "27017:27017"
+database-preload:
+  image: mongo:3.0.4
+  links:
+    - database:my-mongo
+  volumes:
+    - ./backend/scripts:/usr/src/scripts
+  command: mongo 192.168.99.100 /usr/src/scripts/database-preload.js
+frontend:
+  build: ./frontend
+  ports:
+    - "9009:9009"
+  net: "host"

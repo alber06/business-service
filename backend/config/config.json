@@ -1,0 +1,119 @@
+{
+  "mongo": {
+    "uri": "mongodb://",
+    "options": {
+      "user": "mongo",
+      "pass": "#~$7aMV;]PPu86q9"
+    }
+  },
+
+  "logger": {
+    "main": {
+      "console": {
+        "level": "silent"
+      },
+      "file": {
+        "level"   : "info",
+        "filename": "/var/log/business-service/business-service.log"
+      }
+    },
+    "access": {
+      "console": {
+        "level": "silent"
+      },
+      "file": {
+        "level"   : "info",
+        "filename": "/var/log/business-service/business-service-access.log"
+      }
+    }
+  },
+
+  "cookie": {
+    "secret": "keyboard cat"
+  },
+
+  "middleware": {
+    "favicon": {
+      "enabled": false
+    },
+
+    "static": {
+      "enabled": false
+    },
+
+    "logger": {
+      "module": {
+        "name": "path:./lib/morgan",
+        "arguments": ["combined"]
+      }
+    },
+
+    "health": {
+      "enabled": true,
+      "priority": 55,
+      "route": "/health",
+      "module": {
+        "name": "path:./lib/health"
+      }
+    },
+
+    "cookieParser": {
+      "module": {
+        "arguments": [ "config:cookie.secret" ]
+      }
+    },
+
+    "cors": {
+      "enabled": true,
+      "priority": 55,
+      "module": {
+        "name": "cors",
+        "arguments": [{
+          "origin": true,
+          "credentials": true,
+          "methods": [
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE",
+            "OPTIONS"
+          ],
+          "allowedHeaders": [
+            "Authorization",
+            "X-Requested-With",
+            "Origin",
+            "Content-Type",
+            "Accept",
+            "token",
+            "lang",
+            "version"
+            ]
+        }]
+      }
+    },
+
+    "appsec": {
+      "module": {
+        "arguments": [
+          {
+            "csrf": false
+          }
+        ]
+      }
+    },
+
+    "locale": {
+      "enabled": true,
+      "priority": 115,
+      "module": {
+        "name": "path:./lib/locale"
+      }
+    },
+
+    "router": {
+      "module": {
+        "arguments": [{ "directory": "path:./controllers" }]
+      }
+    }
+  }
+}
