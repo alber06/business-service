@@ -6,14 +6,11 @@ backend/*.log
 backend/*.log.*
 backend/.tags*
 backend/tags
-
-# MacOS
-*.DS_Store/
+backend/csv/
 
 frontend/.tmp/
 frontend/.sass-cache/
 frontend/**/*.log
-
 frontend/app/bower_components/
 frontend/app/scripts/config.js
 frontend/app/scripts/core/env.constant.js
@@ -25,5 +22,7 @@ frontend/dist/
 frontend/platforms/
 frontend/reports/
 frontend/www/
+frontend/tags
 
-tags
+# MacOS
+*.DS_Store/
