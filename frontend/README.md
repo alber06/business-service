@@ -40,4 +40,3 @@ All tests, helper modules and configuration are located under `test` folder:
 - `9000` for `grunt servedev`
 - `9002` for `grunt coverage`
 - `9876` for Karma server
-# dashboard

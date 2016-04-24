@@ -6,7 +6,7 @@ backend/*.log
 backend/*.log.*
 backend/.tags*
 backend/tags
-backend/csv/
+backend/csv/*.txt
 
 frontend/.tmp/
 frontend/.sass-cache/
@@ -23,6 +23,3 @@ frontend/platforms/
 frontend/reports/
 frontend/www/
 frontend/tags
-
-# MacOS
-*.DS_Store/
