@@ -36,4 +36,4 @@ RUN  \
 
 
 # Default command
-CMD [ "grunt", "serve:dist", "--force" ]
+CMD [ "grunt", "serve:dist" ]
