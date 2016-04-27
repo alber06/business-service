@@ -31,7 +31,8 @@ RUN gem install compass
 RUN  \
   npm install --no-color --quiet \
   && npm install -g bower grunt-cli \
-  && bower install --allow-root
+  && bower install --allow-root \
+  && npm rebuild
 
 
 # Default command

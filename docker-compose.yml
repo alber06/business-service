@@ -14,7 +14,7 @@ database:
  command: mongod --quiet
  ports:
    - "27017:27017"
-database-preload:
+databasePreload:
   image: mongo:3.0.4
   links:
     - database:my-mongo
